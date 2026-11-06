@@ -1,0 +1,628 @@
+<!DOCTYPE html>  <html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1">  
+    <title>Shahd | Portfolio</title>  <link href="css/bootstrap.css" rel="stylesheet">  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">  
+
+<style>  
+    html {  
+        scroll-behavior: smooth;  
+        scroll-padding-top: 75px;  
+    }  
+
+    body {  
+        background-color: #faf7f3;  
+        font-family: Arial, sans-serif;  
+        color: #352326;  
+    }  
+
+    section {  
+        scroll-margin-top: 70px;  
+    }  
+
+    .gold {  
+        color: #c7a56a !important;  
+    }  
+
+    .text-primary {  
+        color: #853344 !important;  
+    }  
+
+    .bg-primary {  
+        background-color: #853344 !important;  
+    }  
+
+    .navbar {  
+        background: #321e24 !important;  
+        border-bottom: 2px solid #c7a56a;  
+    }  
+
+    .navbar-brand {  
+        letter-spacing: 1px;  
+    }  
+
+    .navbar-nav .nav-link {  
+        color: #f8eee9;  
+        margin-left: 8px;  
+        transition: color 0.3s ease;  
+        position: relative;  
+    }  
+
+    .navbar-nav .nav-link:hover {  
+        color: #e3c99c;  
+    }  
+
+    .navbar-nav .nav-link::after {  
+        content: "";  
+        position: absolute;  
+        bottom: 2px;  
+        left: 8px;  
+        width: 0;  
+        height: 2px;  
+        background: #c7a56a;  
+        transition: width 0.3s ease;  
+    }  
+
+    .navbar-nav .nav-link:hover::after {  
+        width: calc(100% - 16px);  
+    }  
+
+    #home {  
+        background: linear-gradient(135deg, #321e24, #542b36, #352126);  
+        color: white;  
+        border-bottom: 3px solid #c7a56a;  
+    }  
+
+    #home h1 {  
+        line-height: 1.3;  
+    }  
+
+    .hero-badge {  
+        background: #e8d7c8;  
+        color: #542b36;  
+        letter-spacing: 1px;  
+    }  
+
+    .profile-img {  
+        width: 260px;  
+        height: 310px;  
+        max-width: 100%;  
+        object-fit: cover;  
+        object-position: center;  
+        border: 4px solid #c7a56a !important;  
+        border-radius: 45% 45% 18px 18px !important;  
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);  
+        transition: transform 0.4s ease, box-shadow 0.4s ease;  
+        animation: float 4s ease-in-out infinite;  
+    }  
+
+    .profile-img:hover {  
+        transform: translateY(-5px) scale(1.02);  
+        box-shadow: 0 15px 35px rgba(199, 165, 106, 0.3);  
+    }  
+
+    @keyframes float {  
+        0%, 100% {  
+            translate: 0 0;  
+        }  
+        50% {  
+            translate: 0 -7px;  
+        }  
+    }  
+
+    .btn-gold {  
+        background: #d6bb8b;  
+        border: 1px solid #d6bb8b;  
+        color: #321e24;  
+        font-weight: bold;  
+    }  
+
+    .btn-gold:hover {  
+        background: #f0dfc1;  
+        border-color: #f0dfc1;  
+        color: #321e24;  
+        transform: translateY(-3px);  
+    }  
+
+    .btn-wine {  
+        background: #853344;  
+        border-color: #853344;  
+        color: white;  
+    }  
+
+    .btn-wine:hover {  
+        background: #642431;  
+        border-color: #642431;  
+        color: white;  
+        transform: translateY(-3px);  
+    }  
+
+    .btn-outline-wine {  
+        color: #853344;  
+        border: 1px solid #853344;  
+    }  
+
+    .btn-outline-wine:hover {  
+        background: #853344;  
+        color: white;  
+    }  
+
+    .btn {  
+        transition: all 0.3s ease;  
+    }  
+
+    .section-title {  
+        display: inline-block;  
+        position: relative;  
+        padding-bottom: 12px;  
+    }  
+
+    .section-title::after {  
+        content: "";  
+        position: absolute;  
+        width: 55%;  
+        height: 3px;  
+        left: 22.5%;  
+        bottom: 0;  
+        background: linear-gradient(90deg, #853344, #c7a56a);  
+        border-radius: 5px;  
+    }  
+
+    #about {  
+        background: #faf7f3;  
+    }  
+
+    #skills {  
+        background: #f0e7df !important;  
+    }  
+
+    #about .card,  
+    #skills .card,  
+    #projects .card {  
+        border: 0;  
+        border-top: 3px solid #c7a56a !important;  
+        border-radius: 13px;  
+        overflow: hidden;  
+        transition: transform 0.35s ease, box-shadow 0.35s ease;  
+    }  
+
+    #about .card:hover,  
+    #skills .card:hover,  
+    #projects .card:hover {  
+        transform: translateY(-7px);  
+        box-shadow: 0 15px 30px rgba(67, 36, 43, 0.14) !important;  
+    }  
+
+    .card-header.bg-primary {  
+        background: linear-gradient(120deg, #853344, #542b36) !important;  
+    }  
+
+    .skill-icon {  
+        transition: transform 0.3s ease;  
+    }  
+
+    #skills .card:hover .skill-icon {  
+        transform: scale(1.15) rotate(-4deg);  
+    }  
+
+    .skill-html {  
+        color: #b7473e;  
+    }  
+
+    .skill-css {  
+        color: #853344;  
+    }  
+
+    .skill-bootstrap {  
+        color: #a8864e;  
+    }  
+
+    .skill-js {  
+        color: #a17b2d;  
+    }  
+
+    #projects {  
+        background: #faf7f3;  
+    }  
+
+    #projects .card-img-top {  
+        height: 210px;  
+        object-fit: cover;  
+        transition: transform 0.5s ease;  
+    }  
+
+    #projects .card:hover .card-img-top {  
+        transform: scale(1.04);  
+    }  
+
+    #contact {  
+        background: linear-gradient(135deg, #321e24, #542b36) !important;  
+        border-top: 3px solid #c7a56a;  
+    }  
+
+    #contact .card {  
+        border: 0;  
+        border-top: 4px solid #c7a56a;  
+        border-radius: 13px;  
+    }  
+
+    #contact .form-control {  
+        padding: 12px;  
+        border-radius: 8px;  
+    }  
+
+    #contact .form-control:focus {  
+        border-color: #c7a56a;  
+        box-shadow: 0 0 0 0.2rem rgba(199, 165, 106, 0.2);  
+    }  
+
+    footer {  
+        background: #24171b !important;  
+        border-top: 1px solid #c7a56a;  
+    }  
+
+    footer h5 {  
+        color: #e3c99c;  
+    }  
+
+    footer a {  
+        color: #e3c99c;  
+        transition: color 0.3s ease;  
+        text-decoration: none;  
+    }  
+
+    footer a:hover {  
+        color: white;  
+    }  
+
+    @media (max-width: 767.98px) {  
+        #home h1 {  
+            font-size: 2.5rem;  
+        }  
+
+        .profile-img {  
+            width: 220px;  
+            height: 265px;  
+        }  
+
+        .navbar-nav .nav-link::after {  
+            display: none;  
+        }  
+
+        #projects .card-img-top {  
+            height: 200px;  
+        }  
+    }  
+
+    @media (prefers-reduced-motion: reduce) {  
+        *,  
+        *::before,  
+        *::after {  
+            animation: none !important;  
+            transition: none !important;  
+            scroll-behavior: auto !important;  
+        }  
+    }  
+</style>
+
+</head>  <body>  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">  
+    <div class="container">  
+        <a class="navbar-brand fw-bold" href="#home">  
+            <span class="gold">Shahd</span> Portfolio  
+        </a>  <button class="navbar-toggler" type="button"  
+            data-bs-toggle="collapse"  
+            data-bs-target="#navMenu"  
+            aria-controls="navMenu"  
+            aria-expanded="false"  
+            aria-label="Toggle navigation">  
+        <span class="navbar-toggler-icon"></span>  
+    </button>  
+
+    <div class="collapse navbar-collapse" id="navMenu">  
+        <div class="navbar-nav ms-auto">  
+            <a href="#home" class="nav-link">Home</a>  
+            <a href="#about" class="nav-link">About</a>  
+            <a href="#skills" class="nav-link">Skills</a>  
+            <a href="#projects" class="nav-link">Projects</a>  
+            <a href="#contact" class="nav-link">Contact</a>  
+        </div>  
+    </div>  
+</div>
+
+</nav>  <section id="home" class="py-5">  
+    <div class="container py-5">  
+        <div class="row align-items-center">  <div class="col-md-7 text-center text-md-start">  
+            <span class="badge hero-badge mb-3 p-2">  
+                Welcome To My Portfolio  
+            </span>  
+
+            <h1 class="display-4 fw-bold">  
+                Hi, I'm <span class="gold">Shahd</span>  
+            </h1>  
+
+            <h2 class="h3 mb-3 gold">  
+                Web Developer  
+            </h2>  
+
+            <p class="lead text-white-50">  
+                I build modern, responsive and user-friendly websites  
+                using HTML, CSS, Bootstrap and JavaScript.  
+            </p>  
+
+            <a href="#projects" class="btn btn-gold btn-lg me-2 mb-2">  
+                <i class="bi bi-briefcase me-1"></i>  
+                My Projects  
+            </a>  
+
+            <a href="#contact" class="btn btn-outline-light btn-lg mb-2">  
+                <i class="bi bi-envelope me-1"></i>  
+                Contact Me  
+            </a>  
+        </div>  
+
+        <div class="col-md-5 text-center mt-5 mt-md-0">  
+            <img src="assets/img1.jpeg"  
+                 alt="Shahd Profile"  
+                 class="profile-img">  
+
+            <div class="mt-4">  
+                <span class="badge p-2"  
+                      style="background:#853344;color:white">  
+                    <i class="bi bi-code-slash me-1"></i>  
+                    Creative Developer  
+                </span>  
+            </div>  
+        </div>  
+
+    </div>  
+</div>
+
+</section>  <section id="about" class="py-5">  
+    <div class="container py-3">  <div class="text-center mb-5">  
+        <h2 class="fw-bold section-title">  
+            About <span class="text-primary">Me</span>  
+        </h2>  
+        <p class="text-secondary mt-3">Get to know me better</p>  
+    </div>  
+
+    <div class="row g-4 align-items-stretch">  
+
+        <div class="col-md-6">  
+            <div class="card shadow-sm h-100">  
+                <div class="card-body p-4">  
+                    <div class="display-6 mb-3 text-primary">  
+                        <i class="bi bi-person-workspace"></i>  
+                    </div>  
+
+                    <h4 class="fw-bold">Who Am I?</h4>  
+
+                    <p class="text-secondary">  
+                        An aspiring web developer exploring the world of programming, from responsive layouts to C++ fundamentals. Always eager to learn new technologies and write precise, high-quality code.
+                    </p>  
+
+                    <p class="text-secondary mb-0">  
+                        My goal is to build clean, responsive  
+                        and easy-to-use websites.  
+                    </p>  
+                </div>  
+            </div>  
+        </div>  
+
+        <div class="col-md-6">  
+            <div class="card shadow-sm h-100">  
+                <div class="card-header bg-primary text-white p-3">  
+                    <h5 class="mb-0">  
+                        <i class="bi bi-person-lines-fill me-2"></i>  
+                        Personal Information  
+                    </h5>  
+                </div>  
+
+                <div class="card-body p-4">  
+                    <p>  
+                        <i class="bi bi-person-fill text-primary me-2"></i>  
+                        <strong>Name:</strong> Shahd 
+                    </p>  
+
+                    <p>  
+                        <i class="bi bi-envelope-fill text-primary me-2"></i>  
+                        <strong>Email:</strong> Shahd@gmail.com  
+                    </p>  
+
+                    <p>  
+                        <i class="bi bi-geo-alt-fill text-primary me-2"></i>  
+                        <strong>Location:</strong> Egypt  
+                    </p>  
+
+                    <p class="mb-0">  
+                        <i class="bi bi-code-slash text-primary me-2"></i>  
+                        <strong>Role:</strong> Web Developer  
+                    </p>  
+                </div>  
+            </div>  
+        </div>  
+
+    </div>  
+</div>
+
+</section>  <section id="skills" class="py-5">  
+    <div class="container py-3">  <div class="text-center mb-5">  
+        <h2 class="fw-bold section-title">  
+            My <span class="text-primary">Skills</span>  
+        </h2>  
+        <p class="text-secondary mt-3">  
+            Technologies I use to build websites  
+        </p>  
+    </div>  
+
+    <div class="row g-4 text-center">  
+
+        <div class="col-6 col-md-3">  
+            <div class="card shadow-sm h-100">  
+                <div class="card-body p-4">  
+                    <i class="skill-icon skill-html bi bi-filetype-html display-4 d-inline-block"></i>  
+                    <h5 class="fw-bold mt-3">HTML</h5>  
+                    <span class="badge bg-danger">Structure</span>  
+                </div>  
+            </div>  
+        </div>  
+
+        <div class="col-6 col-md-3">  
+            <div class="card shadow-sm h-100">  
+                <div class="card-body p-4">  
+                    <i class="skill-icon skill-css bi bi-filetype-css display-4 d-inline-block"></i>  
+                    <h5 class="fw-bold mt-3">CSS</h5>  
+                    <span class="badge bg-primary">Styling</span>  
+                </div>  
+            </div>  
+        </div>  
+
+        <div class="col-6 col-md-3">  
+            <div class="card shadow-sm h-100">  
+                <div class="card-body p-4">  
+                    <i class="skill-icon skill-bootstrap bi bi-bootstrap-fill display-4 d-inline-block"></i>  
+                    <h5 class="fw-bold mt-3">Bootstrap</h5>  
+                    <span class="badge text-dark"  
+                          style="background:#e3c99c">Responsive</span>  
+                </div>  
+            </div>  
+        </div>  
+
+        <div class="col-6 col-md-3">  
+            <div class="card shadow-sm h-100">  
+                <div class="card-body p-4">  
+                    <i class="skill-icon skill-js bi bi-filetype-js display-4 d-inline-block"></i>  
+                    <h5 class="fw-bold mt-3">JavaScript</h5>  
+                    <span class="badge text-dark"  
+                          style="background:#e8d7c8">Interactive</span>  
+                </div>  
+            </div>  
+        </div>  
+
+    </div>  
+</div>
+
+</section>  <section id="projects" class="py-5">  
+    <div class="container py-3">  <div class="text-center mb-5">  
+        <h2 class="fw-bold section-title">  
+            My <span class="text-primary">Projects</span>  
+        </h2>  
+        <p class="text-secondary mt-3">  
+            Some projects I have worked on  
+        </p>  
+    </div>  
+
+    <div class="row g-4">  
+
+        <div class="col-md-4">  
+            <div class="card shadow-sm h-100">  
+                <img src="https://placehold.co/600x400/542b36/f0dfc1?text=Student+System"  
+                     class="card-img-top"  
+                     alt="Student Management System">  
+
+                <div class="card-body p-4">  
+                    <span class="badge bg-primary mb-2">Management</span>  
+                    <h5 class="fw-bold">Student System</h5>  
+
+                    <p class="text-secondary">  
+                        A simple system for managing student records.  
+                    </p>  
+
+                    <a href="#contact" class="btn btn-outline-wine">  
+                        View Project  
+                        <i class="bi bi-arrow-right ms-1"></i>  
+                    </a>  
+                </div>  
+            </div>  
+        </div>  
+
+        <div class="col-md-4">  
+            <div class="card shadow-sm h-100">  
+                <img src="https://placehold.co/600x400/321e24/e3c99c?text=My+Website"  
+                     class="card-img-top"  
+                     alt="Personal Website">  
+
+                <div class="card-body p-4">  
+                    <span class="badge bg-dark mb-2">Portfolio</span>  
+                    <h5 class="fw-bold">Personal Website</h5>  
+
+                    <p class="text-secondary">  
+                        A personal website to introduce skills and work.  
+                    </p>  
+
+                    <a href="#contact" class="btn btn-outline-wine">  
+                        View Project  
+                        <i class="bi bi-arrow-right ms-1"></i>  
+                    </a>  
+                </div>  
+            </div>  
+        </div>  
+
+        <div class="col-md-4">  
+            <div class="card shadow-sm h-100">  
+                <img src="https://placehold.co/600x400/853344/faf0e5?text=Online+Store"  
+                     class="card-img-top"  
+                     alt="Online Store">  
+
+                <div class="card-body p-4">  
+                    <span class="badge bg-success mb-2">E-Commerce</span>  
+                    <h5 class="fw-bold">Online Store</h5>  
+
+                    <p class="text-secondary">  
+                        A simple online store with product cards.  
+                    </p>  
+
+                    <a href="#contact" class="btn btn-outline-wine">  
+                        View Project  
+                        <i class="bi bi-arrow-right ms-1"></i>  
+                    </a>  
+                </div>  
+            </div>  
+        </div>  
+
+    </div>  
+</div>
+
+</section>  <section id="contact" class="py-5">  
+    <div class="container py-3">  <div class="text-center mb-5">  
+        <h2 class="fw-bold section-title text-white">  
+            Contact <span class="gold">Me</span>  
+        </h2>  
+        <p class="text-white-50 mt-3">  
+            Have a project in mind? Let's talk.  
+        </p>  
+    </div>  
+
+    <div class="row justify-content-center">  
+        <div class="col-md-7 col-lg-6">  
+            <div class="card shadow">  
+                <div class="card-body p-4">  
+
+                    <form action="mailto:shahd@gmail.com"  
+                          method="post"  
+                          enctype="text/plain">  
+
+                        <label for="name" class="form-label">  
+                            Your Name  
+                        </label>  
+                        <input type="text" id="name" name="Name"  
+                               class="form-control mb-3"  
+                               placeholder="Enter your name" required>  
+
+                        <label for="email" class="form-label">  
+                            Your Email  
+                        </label>  
+                        <input type="email" id="email" name="Email"  
+                               class="form-control mb-3"  
+                               placeholder="name@example.com" required>  
+
+                        <label for="message" class="form-label">  
+                            Your Message  
+                        </label>  
+                        <textarea id="message" name="Message"  
+                                  class="form-control mb-3"  
+                                  rows="4"  
+                                  placeholder="Write your message"  
+                                  required></textarea>
+                                  
+                                  
